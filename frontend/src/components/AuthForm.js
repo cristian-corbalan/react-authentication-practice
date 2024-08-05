@@ -3,10 +3,10 @@ import { Form } from 'react-router-dom';
 
 import classes from './AuthForm.module.css';
 
-function AuthForm() {
+function AuthForm () {
   const [isLogin, setIsLogin] = useState(true);
 
-  function switchAuthHandler() {
+  function switchAuthHandler () {
     setIsLogin((isCurrentlyLogin) => !isCurrentlyLogin);
   }
 

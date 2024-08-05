@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 import classes from './EventsNavigation.module.css';
 
-function EventsNavigation() {
+function EventsNavigation () {
   return (
     <header className={classes.header}>
       <nav>
