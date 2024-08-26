@@ -1,11 +1,12 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useRouteLoaderData } from 'react-router-dom';
 
 import EventsNavigation from '../components/EventsNavigation';
 
 function EventsRootLayout () {
+  const authToken = useRouteLoaderData('root');
   return (
     <>
-      <EventsNavigation />
+      {authToken && <EventsNavigation />}
       <Outlet />
     </>
   );
