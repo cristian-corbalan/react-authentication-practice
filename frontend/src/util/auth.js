@@ -1,7 +1,7 @@
 import { redirect } from 'react-router-dom';
 
 export function getAuthToken () {
-  const authToken = localStorage.getItem('token');
+  const authToken = localStorage.getItem('token') ?? sessionStorage.getItem('token');
 
   if (!authToken) {
     return null;
@@ -19,6 +19,8 @@ export function getAuthToken () {
 export function removeAuthToken () {
   localStorage.removeItem('token');
   localStorage.removeItem('expiration');
+  sessionStorage.removeItem('token');
+  sessionStorage.removeItem('expiration');
   return null;
 }
 
@@ -37,7 +39,7 @@ export function authRequiredLoader () {
 }
 
 export function getTokenDuration () {
-  const storedExpirationDate = localStorage.getItem('expiration');
+  const storedExpirationDate = localStorage.getItem('expiration') ?? sessionStorage.getItem('expiration');
   const expirationDate = new Date(storedExpirationDate);
   const now = new Date();
   return expirationDate.getTime() - now.getTime();

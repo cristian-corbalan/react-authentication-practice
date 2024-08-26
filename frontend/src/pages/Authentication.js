@@ -43,8 +43,13 @@ export async function action ({ request }) {
   const expiration = new Date();
   expiration.setHours(expiration.getHours() + 1);
 
-  localStorage.setItem('token', token);
-  localStorage.setItem('expiration', expiration.toISOString());
+  if (data.get('remember')) {
+    localStorage.setItem('token', token);
+    localStorage.setItem('expiration', expiration.toISOString());
+  } else {
+    sessionStorage.setItem('token', token);
+    sessionStorage.setItem('expiration', expiration.toISOString());
+  }
 
   return redirect('/');
 }

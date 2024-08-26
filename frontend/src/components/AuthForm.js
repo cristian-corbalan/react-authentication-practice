@@ -29,6 +29,12 @@ function AuthForm () {
           <label htmlFor="image">Password</label>
           <input id="password" type="password" name="password" required />
         </p>
+        <p>
+          <label>
+            <input id="remember" type="checkbox" name="remember" />
+            <span>Remember me</span>
+          </label>
+        </p>
         <div className={classes.actions}>
           <Link to={`?mode=${isLogin ? 'signup' : 'login'}`}>
             {isLogin ? 'Create new user' : 'Login'}

@@ -16,6 +16,12 @@
   padding: 0.25rem;
 }
 
+.form input[type="checkbox"] {
+  display: inline-block;
+  width: fit-content;
+  margin-right: 1rem;
+}
+
 .actions {
   display: flex;
   gap: 1rem;
